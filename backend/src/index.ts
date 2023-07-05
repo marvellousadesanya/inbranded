@@ -19,6 +19,9 @@ app.use(cors(corsOptions));
 
 // Other middleware and configurations
 app.use(express.json());
+app.get("/", (req, res) => {
+  res.send("Hello!");
+});
 app.use("/add-column", require("./routes/add-column"));
 app.use("/delete-column", deleteColumnRouter);
 app.use("/sales", salesRouter);
