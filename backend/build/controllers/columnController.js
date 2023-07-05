@@ -10,6 +10,7 @@ const addColumn = async (req, res) => {
     const { columnName, columnType } = req.body; // Assuming you pass the column name and type in the request body
     try {
         // Add the new column using Sequelize query
+        /* Used Queries here cos I found them easier to work with here */
         await db_1.default.query(`ALTER TABLE sales ADD COLUMN ${columnName} ${columnType}`, {
             type: sequelize_1.QueryTypes.RAW,
         });

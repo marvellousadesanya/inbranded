@@ -17,8 +17,8 @@ const getAllSales = async (req, res) => {
 };
 exports.getAllSales = getAllSales;
 const recordNewSale = async (req, res) => {
+    const saleData = req.body;
     try {
-        const saleData = req.body;
         const newSale = await Sale_1.default.create(saleData);
         console.log("New sale added:", newSale);
         res.status(200).json(newSale);
@@ -32,7 +32,7 @@ const recordNewSale = async (req, res) => {
 };
 exports.recordNewSale = recordNewSale;
 const deleteSale = async (req, res) => {
-    const saleId = req.params.id;
+    const saleId = req.params.id; // Accepts an ID in URL
     try {
         // Find the sale by ID
         const sale = await Sale_1.default.findByPk(saleId);
