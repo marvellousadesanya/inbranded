@@ -16,6 +16,9 @@ const app = (0, express_1.default)();
 app.use((0, cors_1.default)(corsOptions_1.default));
 // Other middleware and configurations
 app.use(express_1.default.json());
+app.get("/", (req, res) => {
+    res.send("Hello!");
+});
 app.use("/add-column", require("./routes/add-column"));
 app.use("/delete-column", delete_column_1.default);
 app.use("/sales", sales_1.default);

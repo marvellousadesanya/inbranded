@@ -11,9 +11,8 @@ const getAllSales = async (req, res) => {
 };
 
 const recordNewSale = async (req, res) => {
+  const saleData = req.body;
   try {
-    const saleData = req.body;
-
     const newSale = await Sale.create(saleData);
 
     console.log("New sale added:", newSale);
@@ -28,7 +27,7 @@ const recordNewSale = async (req, res) => {
 };
 
 const deleteSale = async (req, res) => {
-  const saleId = req.params.id;
+  const saleId = req.params.id; // Accepts an ID in URL
 
   try {
     // Find the sale by ID

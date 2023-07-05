@@ -1,4 +1,3 @@
-import mysql from "mysql2";
 const Sequelize = require("sequelize");
 
 const sequelize = new Sequelize("developer_challenge", "root", "marve007", {
@@ -6,5 +5,4 @@ const sequelize = new Sequelize("developer_challenge", "root", "marve007", {
   host: "localhost",
 });
 
-// module.exports = sequelize;
 export default sequelize;

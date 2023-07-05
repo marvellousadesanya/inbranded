@@ -7,6 +7,8 @@ const addColumn = async (req, res) => {
 
   try {
     // Add the new column using Sequelize query
+
+    /* Used Queries here cos I found them easier to work with here */
     await sequelize.query(
       `ALTER TABLE sales ADD COLUMN ${columnName} ${columnType}`,
       {
