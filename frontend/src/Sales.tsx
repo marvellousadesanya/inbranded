@@ -4,7 +4,7 @@ import { useGetSalesQuery } from "./app/api/apiSlice";
 import {
   useAddSaleMutation,
   useDeleteRowMutation,
-  useAddColumnMutation,
+  // useAddColumnMutation,
 } from "./app/api/apiSlice";
 
 const socket = io("http://localhost:7000");
@@ -24,7 +24,7 @@ const Sales = () => {
 
   const [deleteRow] = useDeleteRowMutation(); // Removes a row of sales from table
 
-  const [addColumn] = useAddColumnMutation(); // Not implemented on FE yet. Works in BE
+  // const [addColumn] = useAddColumnMutation();  Not implemented on FE yet. Works in BE
 
   /* This manages the state esp for the socket.io emits */
   const [receivedSales, setReceivedSales] = useState<Sale[]>(sales);

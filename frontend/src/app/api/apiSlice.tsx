@@ -17,8 +17,13 @@ export const apiSlice = createApi({
   endpoints: (builder) => ({
     getSales: builder.query<Sale[], void>({
       query: () => "/sales",
-      // Not been able to figure this error out yet
-      providesTags: (id) => [{ type: "Sale", id }],
+      providesTags: (result) =>
+        result
+          ? [
+              ...result.map(({ id }) => ({ type: "Sale" as const, id })),
+              { type: "Sale", id: "LIST" },
+            ]
+          : [{ type: "Sale", id: "LIST" }],
     }),
     addSale: builder.mutation({
       query: (sale) => ({
